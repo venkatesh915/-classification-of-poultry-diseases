@@ -19,8 +19,7 @@ labels = ['Coccidiosis', 'Healthy', 'New Castle Disease', 'Salmonella']
 
 def get_model_predictions(model, image_path):
     img = load_img(image_path, target_size=(224, 224))
-    x = img_to_array(img)
-    x = np.expand_dims(x, axis=0)
+    x = img_to_array(img) 
     x = x / 255.0  
     predictions = model.predict(x, verbose=0)
     return labels[np.argmax(predictions)]
